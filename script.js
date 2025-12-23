@@ -1,65 +1,110 @@
-/* =========================================
-   TAMP CAFE — Interactive Experience
-   ========================================= */
+/* ================================================
+   TAMP — Interactive Experience
+   ================================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
+    initPreloader();
+    initCursor();
     initNavigation();
-    initCursorGlow();
+    initMobileMenu();
     initMenuTabs();
     initReservationForm();
     initScrollAnimations();
     initSmoothScroll();
 });
 
-/* =========================================
-   NAVIGATION
-   ========================================= */
+/* ================================================
+   PRELOADER
+   ================================================ */
 
-function initNavigation() {
-    const navbar = document.getElementById('navbar');
-    const navToggle = document.getElementById('nav-toggle');
-    const navMenu = document.getElementById('nav-menu');
-    const navLinks = document.querySelectorAll('.nav-link');
+function initPreloader() {
+    const preloader = document.getElementById('preloader');
+    
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            preloader.classList.add('hidden');
+        }, 2000);
+    });
+}
 
-    // Mobile toggle
-    navToggle.addEventListener('click', () => {
-        navToggle.classList.toggle('active');
-        navMenu.classList.toggle('active');
-        document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+/* ================================================
+   CUSTOM CURSOR
+   ================================================ */
+
+function initCursor() {
+    const cursor = document.getElementById('cursor');
+    const follower = document.getElementById('cursor-follower');
+    
+    if (!cursor || !follower) return;
+    if (window.matchMedia('(max-width: 768px)').matches) return;
+
+    let mouseX = 0, mouseY = 0;
+    let cursorX = 0, cursorY = 0;
+    let followerX = 0, followerY = 0;
+
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
     });
 
-    // Close menu on link click
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            navToggle.classList.remove('active');
-            navMenu.classList.remove('active');
-            document.body.style.overflow = '';
+    // Smooth cursor animation
+    function animate() {
+        // Cursor follows instantly
+        cursorX += (mouseX - cursorX) * 0.5;
+        cursorY += (mouseY - cursorY) * 0.5;
+        cursor.style.left = `${cursorX}px`;
+        cursor.style.top = `${cursorY}px`;
+
+        // Follower with delay
+        followerX += (mouseX - followerX) * 0.15;
+        followerY += (mouseY - followerY) * 0.15;
+        follower.style.left = `${followerX}px`;
+        follower.style.top = `${followerY}px`;
+
+        requestAnimationFrame(animate);
+    }
+    animate();
+
+    // Hover effects
+    const hoverElements = document.querySelectorAll('a, button, .menu-item, .exp-card, .gallery-img');
+    
+    hoverElements.forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            cursor.classList.add('hover');
+            follower.classList.add('hover');
+        });
+        el.addEventListener('mouseleave', () => {
+            cursor.classList.remove('hover');
+            follower.classList.remove('hover');
         });
     });
+}
 
-    // Scroll effects
-    let lastScroll = 0;
+/* ================================================
+   NAVIGATION
+   ================================================ */
+
+function initNavigation() {
+    const nav = document.querySelector('.nav');
+    
     window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset;
-        
-        if (currentScroll > 100) {
-            navbar.classList.add('scrolled');
+        if (window.scrollY > 100) {
+            nav.classList.add('scrolled');
         } else {
-            navbar.classList.remove('scrolled');
+            nav.classList.remove('scrolled');
         }
-
-        lastScroll = currentScroll;
     });
 
-    // Active section highlighting
+    // Active link highlighting
     const sections = document.querySelectorAll('section[id]');
-    
+    const navLinks = document.querySelectorAll('.nav-link');
+
     const observerOptions = {
         threshold: 0.3,
         rootMargin: '-80px 0px -50% 0px'
     };
 
-    const sectionObserver = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const id = entry.target.getAttribute('id');
@@ -73,85 +118,83 @@ function initNavigation() {
         });
     }, observerOptions);
 
-    sections.forEach(section => sectionObserver.observe(section));
+    sections.forEach(section => observer.observe(section));
 }
 
-/* =========================================
-   CURSOR GLOW EFFECT
-   ========================================= */
+/* ================================================
+   MOBILE MENU
+   ================================================ */
 
-function initCursorGlow() {
-    const cursorGlow = document.getElementById('cursor-glow');
-    
-    if (!cursorGlow || window.matchMedia('(max-width: 768px)').matches) return;
+function initMobileMenu() {
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
 
-    let mouseX = 0, mouseY = 0;
-    let currentX = 0, currentY = 0;
+    if (!menuBtn || !mobileMenu) return;
 
-    document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
+    menuBtn.addEventListener('click', () => {
+        menuBtn.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+        document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
     });
 
-    function animate() {
-        const ease = 0.15;
-        currentX += (mouseX - currentX) * ease;
-        currentY += (mouseY - currentY) * ease;
-        
-        cursorGlow.style.left = `${currentX}px`;
-        cursorGlow.style.top = `${currentY}px`;
-        
-        requestAnimationFrame(animate);
-    }
-
-    animate();
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            menuBtn.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    });
 }
 
-/* =========================================
+/* ================================================
    MENU TABS
-   ========================================= */
+   ================================================ */
 
 function initMenuTabs() {
     const tabs = document.querySelectorAll('.menu-tab');
-    const sections = document.querySelectorAll('.menu-section');
+    const panels = document.querySelectorAll('.menu-panel');
 
     tabs.forEach(tab => {
         tab.addEventListener('click', () => {
-            const target = tab.getAttribute('data-menu');
+            const target = tab.getAttribute('data-tab');
 
-            // Update active tab
+            // Update tabs
             tabs.forEach(t => t.classList.remove('active'));
             tab.classList.add('active');
 
-            // Update active section
-            sections.forEach(section => {
-                section.classList.remove('active');
-                if (section.id === `${target}-menu`) {
-                    section.classList.add('active');
+            // Update panels
+            panels.forEach(panel => {
+                panel.classList.remove('active');
+                if (panel.getAttribute('data-panel') === target) {
+                    panel.classList.add('active');
                 }
             });
         });
     });
 }
 
-/* =========================================
+/* ================================================
    RESERVATION FORM
-   ========================================= */
+   ================================================ */
 
 function initReservationForm() {
     const form = document.getElementById('reservation-form');
-    const successMessage = document.getElementById('reservation-success');
+    const success = document.getElementById('reserve-success');
     const successDetails = document.getElementById('success-details');
     const dateInput = document.getElementById('date');
 
-    // Set minimum date to today
+    if (!form) return;
+
+    // Set minimum date
     const today = new Date().toISOString().split('T')[0];
-    dateInput.setAttribute('min', today);
+    if (dateInput) {
+        dateInput.setAttribute('min', today);
+    }
 
     form.addEventListener('submit', (e) => {
         e.preventDefault();
 
-        // Gather form data
         const formData = new FormData(form);
         const data = {
             name: formData.get('name'),
@@ -160,7 +203,6 @@ function initReservationForm() {
             guests: formData.get('guests'),
             date: formData.get('date'),
             time: formData.get('time'),
-            occasion: formData.get('occasion'),
             requests: formData.get('requests')
         };
 
@@ -173,73 +215,70 @@ function initReservationForm() {
             day: 'numeric'
         });
 
-        // Format time
-        const [hours, minutes] = data.time.split(':');
-        const hour = parseInt(hours);
-        const ampm = hour >= 12 ? 'PM' : 'AM';
-        const displayHour = hour % 12 || 12;
-        const formattedTime = `${displayHour}:${minutes} ${ampm}`;
-
-        // Update success details
+        // Update success message
         successDetails.innerHTML = `
             <strong>${data.name}</strong><br>
-            ${formattedDate} at ${formattedTime}<br>
+            ${formattedDate} at ${data.time}<br>
             Party of ${data.guests}
-            ${data.occasion ? `<br>Occasion: ${data.occasion.charAt(0).toUpperCase() + data.occasion.slice(1)}` : ''}
             ${data.requests ? `<br><br><em>"${data.requests}"</em>` : ''}
         `;
 
-        // Show success message
+        // Show success
         form.style.display = 'none';
-        successMessage.classList.add('show');
+        success.classList.add('show');
 
-        // Scroll to success message
-        successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        // Scroll to success
+        success.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-        // Log data (in production, send to server)
-        console.log('Reservation submitted:', data);
+        console.log('Reservation:', data);
     });
 }
 
-/* =========================================
+/* ================================================
    SCROLL ANIMATIONS
-   ========================================= */
+   ================================================ */
 
 function initScrollAnimations() {
-    // Add animation class to elements
-    const animateElements = document.querySelectorAll(
-        '.story-content, .story-visual, .philosophy-item, .menu-category, ' +
-        '.gallery-item, .info-block, .visit-map, .reservation-header'
-    );
-
-    animateElements.forEach(el => {
-        el.classList.add('animate-on-scroll');
-    });
-
-    // Create observer
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
     };
 
     const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry, index) => {
+        entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Stagger animations
-                setTimeout(() => {
-                    entry.target.classList.add('animated');
-                }, index * 100);
+                entry.target.classList.add('visible');
                 observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
 
-    animateElements.forEach(el => observer.observe(el));
+    // Animate elements
+    const animateElements = document.querySelectorAll(
+        '.exp-card, .menu-category, .story-text, .detail-item, .visual-image, .story-img'
+    );
+
+    animateElements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
+    });
+
+    // Add visible styles
+    const style = document.createElement('style');
+    style.textContent = `
+        .visible {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+    `;
+    document.head.appendChild(style);
 }
 
-/* =========================================
+/* ================================================
    SMOOTH SCROLL
-   ========================================= */
+   ================================================ */
 
 function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -249,10 +288,11 @@ function initSmoothScroll() {
             const target = document.querySelector(this.getAttribute('href'));
             
             if (target) {
-                const offsetTop = target.offsetTop - 80;
+                const offset = 80;
+                const top = target.offsetTop - offset;
                 
                 window.scrollTo({
-                    top: offsetTop,
+                    top: top,
                     behavior: 'smooth'
                 });
             }
@@ -260,38 +300,22 @@ function initSmoothScroll() {
     });
 }
 
-/* =========================================
-   PARALLAX EFFECTS (Optional Enhancement)
-   ========================================= */
+/* ================================================
+   PARALLAX (Optional)
+   ================================================ */
 
 function initParallax() {
-    const hero = document.querySelector('.hero-bg');
+    const parallaxElements = document.querySelectorAll('[data-parallax]');
     
-    if (!hero || window.matchMedia('(max-width: 768px)').matches) return;
+    if (!parallaxElements.length) return;
+    if (window.matchMedia('(max-width: 768px)').matches) return;
 
     window.addEventListener('scroll', () => {
         const scrolled = window.pageYOffset;
-        hero.style.transform = `translateY(${scrolled * 0.3}px)`;
-    });
-}
-
-/* =========================================
-   IMAGE LAZY LOADING (For when real images are added)
-   ========================================= */
-
-function initLazyLoad() {
-    const images = document.querySelectorAll('img[data-src]');
-    
-    const imageObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.dataset.src;
-                img.removeAttribute('data-src');
-                imageObserver.unobserve(img);
-            }
+        
+        parallaxElements.forEach(el => {
+            const speed = el.getAttribute('data-parallax') || 0.5;
+            el.style.transform = `translateY(${scrolled * speed}px)`;
         });
     });
-
-    images.forEach(img => imageObserver.observe(img));
 }

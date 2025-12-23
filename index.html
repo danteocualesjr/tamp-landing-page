@@ -3,571 +3,599 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tamp — Fine Dining in Cebu</title>
-    <meta name="description" content="Experience the art of refined dining at Tamp. An elegant cafe serving breakfast, lunch, and dinner in the heart of Cebu.">
+    <title>TAMP — Fine Dining Cebu</title>
+    <meta name="description" content="An immersive culinary journey in the heart of Cebu. Experience breakfast, lunch, and dinner crafted to perfection.">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@200;300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Cursor follower -->
-    <div class="cursor-glow" id="cursor-glow"></div>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-content">
+            <div class="preloader-logo">TAMP</div>
+            <div class="preloader-bar">
+                <div class="preloader-progress"></div>
+            </div>
+            <div class="preloader-text">Preparing your experience</div>
+        </div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursor-follower"></div>
 
     <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <a href="#home" class="logo">
-                <span class="logo-text">TAMP</span>
-                <span class="logo-divider"></span>
-                <span class="logo-tagline">Cebu</span>
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">
+                <span class="logo-mark">T</span>
+                <span class="logo-full">TAMP</span>
             </a>
-            <ul class="nav-menu" id="nav-menu">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#story" class="nav-link">Our Story</a></li>
-                <li><a href="#menu" class="nav-link">Menu</a></li>
-                <li><a href="#gallery" class="nav-link">Gallery</a></li>
-                <li><a href="#visit" class="nav-link">Visit</a></li>
-                <li><a href="#reservation" class="nav-link nav-cta">Reserve</a></li>
-            </ul>
-            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
-                <span></span>
-                <span></span>
-            </button>
+            <div class="nav-links">
+                <a href="#experience" class="nav-link" data-text="Experience">Experience</a>
+                <a href="#menu" class="nav-link" data-text="Menu">Menu</a>
+                <a href="#story" class="nav-link" data-text="Story">Story</a>
+                <a href="#reserve" class="nav-link" data-text="Reserve">Reserve</a>
+            </div>
+            <div class="nav-actions">
+                <a href="#reserve" class="nav-reserve">Book a Table</a>
+                <button class="nav-menu-btn" id="menu-btn">
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </div>
     </nav>
 
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-content">
+            <div class="mobile-menu-links">
+                <a href="#experience" class="mobile-link">
+                    <span class="mobile-link-num">01</span>
+                    <span class="mobile-link-text">Experience</span>
+                </a>
+                <a href="#menu" class="mobile-link">
+                    <span class="mobile-link-num">02</span>
+                    <span class="mobile-link-text">Menu</span>
+                </a>
+                <a href="#story" class="mobile-link">
+                    <span class="mobile-link-num">03</span>
+                    <span class="mobile-link-text">Story</span>
+                </a>
+                <a href="#reserve" class="mobile-link">
+                    <span class="mobile-link-num">04</span>
+                    <span class="mobile-link-text">Reserve</span>
+                </a>
+            </div>
+            <div class="mobile-menu-footer">
+                <div class="mobile-info">
+                    <p>Ayala Center Cebu</p>
+                    <p>+63 32 123 4567</p>
+                </div>
+                <div class="mobile-social">
+                    <a href="#">IG</a>
+                    <a href="#">FB</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Hero Section -->
-    <section id="home" class="hero">
+    <section class="hero" id="hero">
         <div class="hero-bg">
             <div class="hero-gradient"></div>
-            <div class="hero-pattern"></div>
-            <div class="hero-overlay"></div>
+            <div class="hero-noise"></div>
+            <div class="hero-lines">
+                <span></span><span></span><span></span><span></span><span></span>
+            </div>
         </div>
+        
         <div class="hero-content">
-            <div class="hero-badge">
-                <span>Est. 2024</span>
-                <span class="badge-dot"></span>
-                <span>Cebu City</span>
+            <div class="hero-left">
+                <div class="hero-eyebrow">
+                    <span class="eyebrow-line"></span>
+                    <span>Cebu's Finest</span>
+                </div>
+                <h1 class="hero-title">
+                    <span class="title-row">
+                        <span class="title-word" data-delay="0">The</span>
+                        <span class="title-word" data-delay="1">Art</span>
+                        <span class="title-word" data-delay="2">of</span>
+                    </span>
+                    <span class="title-row title-large">
+                        <span class="title-word title-accent" data-delay="3">Dining</span>
+                    </span>
+                </h1>
+                <p class="hero-desc">Where culinary mastery meets timeless elegance. Every dish tells a story of passion and perfection.</p>
+                <div class="hero-cta">
+                    <a href="#reserve" class="btn-primary">
+                        <span class="btn-text">Reserve Your Table</span>
+                        <span class="btn-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </span>
+                    </a>
+                    <a href="#menu" class="btn-secondary">
+                        <span>Explore Menu</span>
+                    </a>
+                </div>
             </div>
-            <h1 class="hero-title">
-                <span class="title-line">The Art of</span>
-                <span class="title-accent">Elegant Dining</span>
-            </h1>
-            <p class="hero-description">Where every moment becomes a memory, and every dish tells a story of passion, precision, and perfection.</p>
-            <div class="hero-actions">
-                <a href="#reservation" class="btn btn-primary">
-                    <span>Reserve Your Table</span>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
+            
+            <div class="hero-right">
+                <div class="hero-image">
+                    <div class="image-frame">
+                        <div class="image-inner"></div>
+                        <div class="image-overlay"></div>
+                    </div>
+                    <div class="image-badge">
+                        <span class="badge-year">EST</span>
+                        <span class="badge-num">2024</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-bottom">
+            <div class="hero-hours">
+                <div class="hour-item">
+                    <span class="hour-label">Breakfast</span>
+                    <span class="hour-time">7 — 11 AM</span>
+                </div>
+                <div class="hour-divider"></div>
+                <div class="hour-item">
+                    <span class="hour-label">Lunch</span>
+                    <span class="hour-time">11:30 — 3 PM</span>
+                </div>
+                <div class="hour-divider"></div>
+                <div class="hour-item">
+                    <span class="hour-label">Dinner</span>
+                    <span class="hour-time">5 — 10 PM</span>
+                </div>
+            </div>
+            <div class="hero-scroll">
+                <div class="scroll-text">Scroll</div>
+                <div class="scroll-line">
+                    <div class="scroll-dot"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience" id="experience">
+        <div class="experience-header">
+            <div class="section-num">01</div>
+            <h2 class="section-title">
+                <span>A Sanctuary</span>
+                <span class="title-italic">for the Senses</span>
+            </h2>
+        </div>
+
+        <div class="experience-grid">
+            <div class="exp-card" data-index="01">
+                <div class="exp-card-icon">
+                    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1">
+                        <circle cx="24" cy="24" r="20"/>
+                        <path d="M24 14v10l7 7"/>
                     </svg>
-                </a>
-                <a href="#menu" class="btn btn-ghost">Explore Menu</a>
+                </div>
+                <h3>Crafted with Time</h3>
+                <p>Every dish receives the attention it deserves—slow-cooked, carefully prepared, perfectly timed.</p>
+            </div>
+            <div class="exp-card" data-index="02">
+                <div class="exp-card-icon">
+                    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1">
+                        <path d="M24 4L4 14v20l20 10 20-10V14L24 4z"/>
+                        <path d="M4 14l20 10 20-10M24 44V24"/>
+                    </svg>
+                </div>
+                <h3>Local Excellence</h3>
+                <p>We celebrate Cebu's rich bounty, partnering with local artisans for the finest ingredients.</p>
+            </div>
+            <div class="exp-card" data-index="03">
+                <div class="exp-card-icon">
+                    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1">
+                        <circle cx="24" cy="24" r="20"/>
+                        <path d="M16 24l6 6 10-10"/>
+                    </svg>
+                </div>
+                <h3>Mindful Service</h3>
+                <p>Attentive without intrusion. Our team anticipates your needs with warmth and grace.</p>
             </div>
         </div>
-        <div class="hero-scroll">
-            <span>Scroll to discover</span>
-            <div class="scroll-line"></div>
-        </div>
-        <div class="hero-time">
-            <div class="time-item">
-                <span class="time-label">Breakfast</span>
-                <span class="time-value">7am — 11am</span>
-            </div>
-            <div class="time-divider"></div>
-            <div class="time-item">
-                <span class="time-label">Lunch</span>
-                <span class="time-value">11:30am — 3pm</span>
-            </div>
-            <div class="time-divider"></div>
-            <div class="time-item">
-                <span class="time-label">Dinner</span>
-                <span class="time-value">5pm — 10pm</span>
-            </div>
-        </div>
-    </section>
 
-    <!-- Story Section -->
-    <section id="story" class="story">
-        <div class="container">
-            <div class="story-grid">
-                <div class="story-visual">
-                    <div class="visual-frame">
-                        <div class="frame-image frame-1"></div>
-                        <div class="frame-image frame-2"></div>
-                        <div class="frame-accent"></div>
-                    </div>
-                </div>
-                <div class="story-content">
-                    <div class="section-label">
-                        <span class="label-line"></span>
-                        <span>Our Story</span>
-                    </div>
-                    <h2 class="section-title">A Sanctuary for the Senses</h2>
-                    <div class="story-text">
-                        <p class="lead">Nestled in the vibrant heart of Cebu, Tamp emerges as an oasis of refined taste and timeless elegance.</p>
-                        <p>We believe that dining transcends mere sustenance—it is an art form, a celebration of life's most beautiful moments. Every element at Tamp has been thoughtfully curated: from the soft glow of ambient lighting to the delicate arrangement of each plate.</p>
-                        <p>Our culinary philosophy honors both tradition and innovation. We source the finest local ingredients, transforming them through technique and passion into experiences that linger long after the last bite.</p>
-                    </div>
-                    <div class="story-signature">
-                        <div class="signature-line"></div>
-                        <span>The Tamp Experience</span>
-                    </div>
-                </div>
+        <div class="experience-visual">
+            <div class="visual-container">
+                <div class="visual-image visual-1"></div>
+                <div class="visual-image visual-2"></div>
+                <div class="visual-image visual-3"></div>
             </div>
-        </div>
-    </section>
-
-    <!-- Philosophy Section -->
-    <section class="philosophy">
-        <div class="philosophy-bg"></div>
-        <div class="container">
-            <div class="philosophy-grid">
-                <div class="philosophy-item" data-index="01">
-                    <div class="philosophy-icon">
-                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <circle cx="24" cy="24" r="20"/>
-                            <path d="M24 14v10l6 6"/>
-                        </svg>
-                    </div>
-                    <h3>Crafted with Time</h3>
-                    <p>Each dish is given the time it deserves—slow-cooked, carefully prepared, and perfectly timed.</p>
-                </div>
-                <div class="philosophy-item" data-index="02">
-                    <div class="philosophy-icon">
-                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M24 4L4 14v20l20 10 20-10V14L24 4z"/>
-                            <path d="M4 14l20 10 20-10M24 44V24"/>
-                        </svg>
-                    </div>
-                    <h3>Local Excellence</h3>
-                    <p>We celebrate Cebu's rich bounty, partnering with local farmers and artisans for the freshest ingredients.</p>
-                </div>
-                <div class="philosophy-item" data-index="03">
-                    <div class="philosophy-icon">
-                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M24 4c11 0 20 9 20 20s-9 20-20 20S4 35 4 24 13 4 24 4z"/>
-                            <path d="M18 20c0-3.3 2.7-6 6-6s6 2.7 6 6c0 6-6 8-6 12"/>
-                            <circle cx="24" cy="36" r="2"/>
-                        </svg>
-                    </div>
-                    <h3>Mindful Service</h3>
-                    <p>Attentive without intrusion, our team anticipates your needs with grace and warmth.</p>
-                </div>
+            <div class="visual-text">
+                <blockquote>
+                    "Dining is not merely eating. It is an art, a celebration of life's most precious moments."
+                </blockquote>
+                <cite>— The Tamp Philosophy</cite>
             </div>
         </div>
     </section>
 
     <!-- Menu Section -->
-    <section id="menu" class="menu">
-        <div class="container">
-            <div class="menu-header">
-                <div class="section-label">
-                    <span class="label-line"></span>
-                    <span>Culinary Journey</span>
-                </div>
-                <h2 class="section-title">Our Menu</h2>
-                <p class="section-subtitle">A symphony of flavors, composed with passion</p>
-            </div>
-            
-            <div class="menu-nav">
-                <button class="menu-tab active" data-menu="breakfast">
-                    <span class="tab-text">Breakfast</span>
-                    <span class="tab-time">7am — 11am</span>
-                </button>
-                <button class="menu-tab" data-menu="lunch">
-                    <span class="tab-text">Lunch</span>
-                    <span class="tab-time">11:30am — 3pm</span>
-                </button>
-                <button class="menu-tab" data-menu="dinner">
-                    <span class="tab-text">Dinner</span>
-                    <span class="tab-time">5pm — 10pm</span>
-                </button>
-            </div>
+    <section class="menu-section" id="menu">
+        <div class="menu-header">
+            <div class="section-num">02</div>
+            <h2 class="section-title">
+                <span>Culinary</span>
+                <span class="title-italic">Journey</span>
+            </h2>
+            <p class="section-desc">A symphony of flavors, composed with passion</p>
+        </div>
 
-            <!-- Breakfast Menu -->
-            <div class="menu-section active" id="breakfast-menu">
+        <div class="menu-tabs">
+            <button class="menu-tab active" data-tab="breakfast">
+                <span class="tab-name">Breakfast</span>
+                <span class="tab-time">7am — 11am</span>
+            </button>
+            <button class="menu-tab" data-tab="lunch">
+                <span class="tab-name">Lunch</span>
+                <span class="tab-time">11:30am — 3pm</span>
+            </button>
+            <button class="menu-tab" data-tab="dinner">
+                <span class="tab-name">Dinner</span>
+                <span class="tab-time">5pm — 10pm</span>
+            </button>
+        </div>
+
+        <div class="menu-content">
+            <!-- Breakfast -->
+            <div class="menu-panel active" data-panel="breakfast">
                 <div class="menu-category">
-                    <h3 class="category-title">Morning Classics</h3>
+                    <h3 class="category-name">Morning Classics</h3>
                     <div class="menu-items">
                         <div class="menu-item">
-                            <div class="item-details">
+                            <div class="item-info">
                                 <h4>Eggs Benedict Florentine</h4>
                                 <p>Poached eggs, wilted spinach, house-made hollandaise, toasted brioche</p>
                             </div>
-                            <span class="item-price">₱485</span>
+                            <div class="item-price">₱485</div>
                         </div>
                         <div class="menu-item">
-                            <div class="item-details">
+                            <div class="item-info">
                                 <h4>Truffle Scrambled Eggs</h4>
                                 <p>Free-range eggs, black truffle, chives, sourdough crostini</p>
                             </div>
-                            <span class="item-price">₱520</span>
+                            <div class="item-price">₱520</div>
                         </div>
                         <div class="menu-item">
-                            <div class="item-details">
+                            <div class="item-info">
                                 <h4>Avocado Royale</h4>
                                 <p>Smashed avocado, heirloom tomatoes, feta, poached eggs, multigrain</p>
                             </div>
-                            <span class="item-price">₱420</span>
+                            <div class="item-price">₱420</div>
                         </div>
                     </div>
                 </div>
                 <div class="menu-category">
-                    <h3 class="category-title">Sweet Indulgences</h3>
+                    <h3 class="category-name">Sweet Indulgences</h3>
                     <div class="menu-items">
                         <div class="menu-item">
-                            <div class="item-details">
+                            <div class="item-info">
                                 <h4>Brioche French Toast</h4>
-                                <p>Vanilla bean custard, caramelized bananas, maple reduction, crème fraîche</p>
+                                <p>Vanilla bean custard, caramelized bananas, maple reduction</p>
                             </div>
-                            <span class="item-price">₱450</span>
+                            <div class="item-price">₱450</div>
                         </div>
                         <div class="menu-item">
-                            <div class="item-details">
+                            <div class="item-info">
                                 <h4>Açaí Garden Bowl</h4>
                                 <p>Organic açaí, house granola, seasonal fruits, wildflower honey</p>
                             </div>
-                            <span class="item-price">₱420</span>
+                            <div class="item-price">₱420</div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Lunch Menu -->
-            <div class="menu-section" id="lunch-menu">
+            <!-- Lunch -->
+            <div class="menu-panel" data-panel="lunch">
                 <div class="menu-category">
-                    <h3 class="category-title">First Plates</h3>
+                    <h3 class="category-name">First Plates</h3>
                     <div class="menu-items">
                         <div class="menu-item">
-                            <div class="item-details">
+                            <div class="item-info">
                                 <h4>Burrata & Heirloom Tomatoes</h4>
                                 <p>Creamy burrata, San Marzano tomatoes, aged balsamic, micro basil</p>
                             </div>
-                            <span class="item-price">₱580</span>
+                            <div class="item-price">₱580</div>
                         </div>
                         <div class="menu-item">
-                            <div class="item-details">
+                            <div class="item-info">
                                 <h4>Tuna Tartare</h4>
                                 <p>Sashimi-grade tuna, sesame, avocado mousse, wonton crisps</p>
                             </div>
-                            <span class="item-price">₱620</span>
+                            <div class="item-price">₱620</div>
                         </div>
                     </div>
                 </div>
                 <div class="menu-category">
-                    <h3 class="category-title">Main Courses</h3>
+                    <h3 class="category-name">Main Courses</h3>
                     <div class="menu-items">
                         <div class="menu-item">
-                            <div class="item-details">
+                            <div class="item-info">
                                 <h4>Pan-Seared Salmon</h4>
-                                <p>Norwegian salmon, citrus beurre blanc, asparagus, crushed fingerlings</p>
+                                <p>Norwegian salmon, citrus beurre blanc, asparagus, fingerlings</p>
                             </div>
-                            <span class="item-price">₱780</span>
+                            <div class="item-price">₱780</div>
                         </div>
                         <div class="menu-item">
-                            <div class="item-details">
+                            <div class="item-info">
                                 <h4>Beef Tenderloin Medallions</h4>
                                 <p>Prime beef, red wine reduction, roasted vegetables, truffle mash</p>
                             </div>
-                            <span class="item-price">₱950</span>
+                            <div class="item-price">₱950</div>
                         </div>
                         <div class="menu-item">
-                            <div class="item-details">
+                            <div class="item-info">
                                 <h4>Wild Mushroom Risotto</h4>
                                 <p>Arborio rice, porcini, chanterelles, aged parmesan, truffle oil</p>
                             </div>
-                            <span class="item-price">₱620</span>
+                            <div class="item-price">₱620</div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Dinner Menu -->
-            <div class="menu-section" id="dinner-menu">
+            <!-- Dinner -->
+            <div class="menu-panel" data-panel="dinner">
                 <div class="menu-category">
-                    <h3 class="category-title">To Begin</h3>
+                    <h3 class="category-name">To Begin</h3>
                     <div class="menu-items">
                         <div class="menu-item">
-                            <div class="item-details">
+                            <div class="item-info">
                                 <h4>Oysters Rockefeller</h4>
                                 <p>Fresh oysters, spinach, herb butter, parmesan gratin</p>
                             </div>
-                            <span class="item-price">₱720</span>
+                            <div class="item-price">₱720</div>
                         </div>
                         <div class="menu-item">
-                            <div class="item-details">
+                            <div class="item-info">
                                 <h4>Foie Gras Terrine</h4>
                                 <p>Duck liver, fig compote, brioche toast, fleur de sel</p>
                             </div>
-                            <span class="item-price">₱890</span>
+                            <div class="item-price">₱890</div>
                         </div>
                     </div>
                 </div>
                 <div class="menu-category">
-                    <h3 class="category-title">The Main Event</h3>
+                    <h3 class="category-name">The Main Event</h3>
                     <div class="menu-items">
-                        <div class="menu-item">
-                            <div class="item-details">
+                        <div class="menu-item featured">
+                            <div class="item-badge">Chef's Selection</div>
+                            <div class="item-info">
                                 <h4>A5 Wagyu Ribeye</h4>
                                 <p>Japanese wagyu, bone marrow, roasted garlic, seasonal vegetables</p>
                             </div>
-                            <span class="item-price">₱2,800</span>
+                            <div class="item-price">₱2,800</div>
                         </div>
                         <div class="menu-item">
-                            <div class="item-details">
+                            <div class="item-info">
                                 <h4>Butter-Poached Lobster</h4>
-                                <p>Maine lobster, champagne beurre blanc, saffron risotto, microgreens</p>
+                                <p>Maine lobster, champagne beurre blanc, saffron risotto</p>
                             </div>
-                            <span class="item-price">₱1,950</span>
+                            <div class="item-price">₱1,950</div>
                         </div>
                         <div class="menu-item">
-                            <div class="item-details">
+                            <div class="item-info">
                                 <h4>Duck Breast à l'Orange</h4>
                                 <p>Roasted duck, citrus gastrique, confit potatoes, haricots verts</p>
                             </div>
-                            <span class="item-price">₱1,150</span>
+                            <div class="item-price">₱1,150</div>
                         </div>
                     </div>
                 </div>
                 <div class="menu-category">
-                    <h3 class="category-title">Sweet Finale</h3>
+                    <h3 class="category-name">Sweet Finale</h3>
                     <div class="menu-items">
                         <div class="menu-item">
-                            <div class="item-details">
+                            <div class="item-info">
                                 <h4>Valrhona Chocolate Soufflé</h4>
                                 <p>Dark chocolate, vanilla bean ice cream, gold leaf</p>
                             </div>
-                            <span class="item-price">₱450</span>
+                            <div class="item-price">₱450</div>
                         </div>
                         <div class="menu-item">
-                            <div class="item-details">
+                            <div class="item-info">
                                 <h4>Crème Brûlée</h4>
                                 <p>Madagascar vanilla, caramelized sugar, fresh berries</p>
                             </div>
-                            <span class="item-price">₱380</span>
+                            <div class="item-price">₱380</div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="story" id="story">
+        <div class="story-bg">
+            <div class="story-gradient"></div>
+        </div>
+        <div class="story-content">
+            <div class="story-left">
+                <div class="section-num light">03</div>
+                <h2 class="section-title light">
+                    <span>Our</span>
+                    <span class="title-italic">Story</span>
+                </h2>
+                <div class="story-text">
+                    <p class="story-lead">Nestled in the vibrant heart of Cebu, Tamp emerges as an oasis of refined taste and timeless elegance.</p>
+                    <p>We believe that dining transcends mere sustenance—it is an art form, a celebration of life's most beautiful moments. Every element at Tamp has been thoughtfully curated: from the soft glow of ambient lighting to the delicate arrangement of each plate.</p>
+                    <p>Our culinary philosophy honors both tradition and innovation. We source the finest local ingredients, transforming them through technique and passion into experiences that linger long after the last bite.</p>
+                </div>
+                <div class="story-signature">
+                    <div class="signature-icon">✦</div>
+                    <span>The Tamp Experience</span>
+                </div>
+            </div>
+            <div class="story-right">
+                <div class="story-images">
+                    <div class="story-img story-img-1"></div>
+                    <div class="story-img story-img-2"></div>
+                    <div class="story-img story-img-3"></div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Gallery Section -->
-    <section id="gallery" class="gallery">
+    <section class="gallery">
         <div class="gallery-header">
-            <div class="section-label">
-                <span class="label-line"></span>
-                <span>Visual Journey</span>
-            </div>
-            <h2 class="section-title">Moments at Tamp</h2>
+            <h2>Moments at Tamp</h2>
         </div>
-        <div class="gallery-grid">
-            <div class="gallery-item large">
-                <div class="gallery-image" data-placeholder="Interior"></div>
-                <div class="gallery-overlay">
-                    <span>The Dining Room</span>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <div class="gallery-image" data-placeholder="Coffee"></div>
-                <div class="gallery-overlay">
-                    <span>Artisan Coffee</span>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <div class="gallery-image" data-placeholder="Dish"></div>
-                <div class="gallery-overlay">
-                    <span>Culinary Art</span>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <div class="gallery-image" data-placeholder="Details"></div>
-                <div class="gallery-overlay">
-                    <span>Elegant Details</span>
-                </div>
-            </div>
-            <div class="gallery-item large">
-                <div class="gallery-image" data-placeholder="Ambiance"></div>
-                <div class="gallery-overlay">
-                    <span>Evening Ambiance</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Visit Section -->
-    <section id="visit" class="visit">
-        <div class="container">
-            <div class="visit-grid">
-                <div class="visit-info">
-                    <div class="section-label">
-                        <span class="label-line"></span>
-                        <span>Find Us</span>
-                    </div>
-                    <h2 class="section-title">Visit Tamp</h2>
-                    
-                    <div class="info-blocks">
-                        <div class="info-block">
-                            <h3>Location</h3>
-                            <p>Ground Floor, Ayala Center Cebu<br>Cardinal Rosales Avenue<br>Cebu Business Park, Cebu City 6000</p>
-                        </div>
-                        <div class="info-block">
-                            <h3>Hours</h3>
-                            <div class="hours-list">
-                                <div class="hours-row">
-                                    <span>Monday — Thursday</span>
-                                    <span>7:00 AM — 10:00 PM</span>
-                                </div>
-                                <div class="hours-row">
-                                    <span>Friday — Saturday</span>
-                                    <span>7:00 AM — 11:00 PM</span>
-                                </div>
-                                <div class="hours-row">
-                                    <span>Sunday</span>
-                                    <span>8:00 AM — 9:00 PM</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="info-block">
-                            <h3>Contact</h3>
-                            <p>
-                                <a href="tel:+63321234567">+63 32 123 4567</a><br>
-                                <a href="mailto:hello@tampcafe.ph">hello@tampcafe.ph</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="visit-map">
-                    <div class="map-container">
-                        <div class="map-placeholder">
-                            <div class="map-pin"></div>
-                            <span>Cebu Business Park</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="gallery-track">
+            <div class="gallery-item"><div class="gallery-img" data-label="Interior"></div></div>
+            <div class="gallery-item"><div class="gallery-img" data-label="Cuisine"></div></div>
+            <div class="gallery-item"><div class="gallery-img" data-label="Ambiance"></div></div>
+            <div class="gallery-item"><div class="gallery-img" data-label="Details"></div></div>
+            <div class="gallery-item"><div class="gallery-img" data-label="Evening"></div></div>
         </div>
     </section>
 
     <!-- Reservation Section -->
-    <section id="reservation" class="reservation">
-        <div class="reservation-bg"></div>
-        <div class="container">
-            <div class="reservation-content">
-                <div class="reservation-header">
-                    <div class="section-label light">
-                        <span class="label-line"></span>
-                        <span>Book Your Experience</span>
-                    </div>
-                    <h2 class="section-title">Reserve a Table</h2>
-                    <p class="section-subtitle">Join us for an unforgettable dining experience</p>
-                </div>
+    <section class="reserve" id="reserve">
+        <div class="reserve-bg">
+            <div class="reserve-pattern"></div>
+        </div>
+        <div class="reserve-container">
+            <div class="reserve-info">
+                <div class="section-num light">04</div>
+                <h2 class="section-title light">
+                    <span>Reserve</span>
+                    <span class="title-italic">Your Table</span>
+                </h2>
+                <p class="reserve-desc">Join us for an unforgettable culinary journey. Book your experience today.</p>
                 
-                <form class="reservation-form" id="reservation-form">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" name="name" required placeholder="Your name">
+                <div class="reserve-details">
+                    <div class="detail-item">
+                        <div class="detail-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
                         </div>
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" required placeholder="your@email.com">
+                        <div class="detail-text">
+                            <h4>Location</h4>
+                            <p>Ground Floor, Ayala Center Cebu<br>Cebu Business Park, Cebu City</p>
                         </div>
                     </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" required placeholder="+63 XXX XXX XXXX">
+                    <div class="detail-item">
+                        <div class="detail-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 6v6l4 2"/>
+                            </svg>
                         </div>
-                        <div class="form-group">
-                            <label for="guests">Number of Guests</label>
-                            <select id="guests" name="guests" required>
-                                <option value="">Select guests</option>
+                        <div class="detail-text">
+                            <h4>Hours</h4>
+                            <p>Mon — Thu: 7am — 10pm<br>Fri — Sun: 7am — 11pm</p>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+                            </svg>
+                        </div>
+                        <div class="detail-text">
+                            <h4>Contact</h4>
+                            <p>+63 32 123 4567<br>hello@tampcafe.ph</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reserve-form-wrapper">
+                <form class="reserve-form" id="reservation-form">
+                    <div class="form-grid">
+                        <div class="form-field">
+                            <label>Full Name</label>
+                            <input type="text" name="name" required placeholder="Your name">
+                        </div>
+                        <div class="form-field">
+                            <label>Email</label>
+                            <input type="email" name="email" required placeholder="your@email.com">
+                        </div>
+                        <div class="form-field">
+                            <label>Phone</label>
+                            <input type="tel" name="phone" required placeholder="+63 XXX XXX XXXX">
+                        </div>
+                        <div class="form-field">
+                            <label>Guests</label>
+                            <select name="guests" required>
+                                <option value="">Select</option>
                                 <option value="1">1 Guest</option>
                                 <option value="2">2 Guests</option>
                                 <option value="3">3 Guests</option>
                                 <option value="4">4 Guests</option>
                                 <option value="5">5 Guests</option>
                                 <option value="6">6 Guests</option>
-                                <option value="7">7+ Guests (Private Dining)</option>
+                                <option value="7+">7+ Guests</option>
                             </select>
                         </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="date">Preferred Date</label>
-                            <input type="date" id="date" name="date" required>
+                        <div class="form-field">
+                            <label>Date</label>
+                            <input type="date" name="date" id="date" required>
                         </div>
-                        <div class="form-group">
-                            <label for="time">Preferred Time</label>
-                            <select id="time" name="time" required>
-                                <option value="">Select time</option>
+                        <div class="form-field">
+                            <label>Time</label>
+                            <select name="time" required>
+                                <option value="">Select</option>
                                 <optgroup label="Breakfast">
-                                    <option value="07:00">7:00 AM</option>
-                                    <option value="07:30">7:30 AM</option>
-                                    <option value="08:00">8:00 AM</option>
-                                    <option value="08:30">8:30 AM</option>
-                                    <option value="09:00">9:00 AM</option>
-                                    <option value="09:30">9:30 AM</option>
-                                    <option value="10:00">10:00 AM</option>
-                                    <option value="10:30">10:30 AM</option>
+                                    <option>7:00 AM</option>
+                                    <option>8:00 AM</option>
+                                    <option>9:00 AM</option>
+                                    <option>10:00 AM</option>
                                 </optgroup>
                                 <optgroup label="Lunch">
-                                    <option value="11:30">11:30 AM</option>
-                                    <option value="12:00">12:00 PM</option>
-                                    <option value="12:30">12:30 PM</option>
-                                    <option value="13:00">1:00 PM</option>
-                                    <option value="13:30">1:30 PM</option>
-                                    <option value="14:00">2:00 PM</option>
-                                    <option value="14:30">2:30 PM</option>
+                                    <option>11:30 AM</option>
+                                    <option>12:00 PM</option>
+                                    <option>1:00 PM</option>
+                                    <option>2:00 PM</option>
                                 </optgroup>
                                 <optgroup label="Dinner">
-                                    <option value="17:00">5:00 PM</option>
-                                    <option value="17:30">5:30 PM</option>
-                                    <option value="18:00">6:00 PM</option>
-                                    <option value="18:30">6:30 PM</option>
-                                    <option value="19:00">7:00 PM</option>
-                                    <option value="19:30">7:30 PM</option>
-                                    <option value="20:00">8:00 PM</option>
-                                    <option value="20:30">8:30 PM</option>
-                                    <option value="21:00">9:00 PM</option>
+                                    <option>5:00 PM</option>
+                                    <option>6:00 PM</option>
+                                    <option>7:00 PM</option>
+                                    <option>8:00 PM</option>
+                                    <option>9:00 PM</option>
                                 </optgroup>
                             </select>
                         </div>
                     </div>
-                    <div class="form-group full-width">
-                        <label for="occasion">Special Occasion</label>
-                        <select id="occasion" name="occasion">
-                            <option value="">Select occasion (optional)</option>
-                            <option value="birthday">Birthday Celebration</option>
-                            <option value="anniversary">Anniversary</option>
-                            <option value="date">Romantic Date</option>
-                            <option value="business">Business Dinner</option>
-                            <option value="other">Other Special Occasion</option>
-                        </select>
+                    <div class="form-field full">
+                        <label>Special Requests</label>
+                        <textarea name="requests" rows="3" placeholder="Dietary restrictions, special occasions..."></textarea>
                     </div>
-                    <div class="form-group full-width">
-                        <label for="requests">Special Requests</label>
-                        <textarea id="requests" name="requests" rows="4" placeholder="Dietary restrictions, seating preferences, or any special requirements..."></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-full">
+                    <button type="submit" class="form-submit">
                         <span>Confirm Reservation</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                             <path d="M5 12h14M12 5l7 7-7 7"/>
                         </svg>
                     </button>
-                    <p class="form-note">We'll confirm your reservation within 2 hours via email</p>
                 </form>
 
-                <div class="reservation-success" id="reservation-success">
+                <div class="reserve-success" id="reserve-success">
                     <div class="success-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                             <path d="M20 6L9 17l-5-5"/>
                         </svg>
                     </div>
                     <h3>Reservation Confirmed</h3>
-                    <p>Thank you for choosing Tamp. A confirmation email has been sent to your inbox.</p>
+                    <p>Thank you for choosing Tamp. A confirmation has been sent to your email.</p>
                     <div class="success-details" id="success-details"></div>
                 </div>
             </div>
@@ -576,67 +604,40 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-main">
-                <div class="footer-brand">
-                    <div class="footer-logo">TAMP</div>
-                    <p>The art of elegant dining in the heart of Cebu.</p>
-                    <div class="footer-social">
-                        <a href="#" aria-label="Instagram">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <rect x="2" y="2" width="20" height="20" rx="5"/>
-                                <circle cx="12" cy="12" r="4"/>
-                                <circle cx="18" cy="6" r="1.5"/>
-                            </svg>
-                        </a>
-                        <a href="#" aria-label="Facebook">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
-                            </svg>
-                        </a>
-                        <a href="#" aria-label="Twitter">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
-                            </svg>
-                        </a>
-                    </div>
+        <div class="footer-top">
+            <div class="footer-brand">
+                <div class="footer-logo">TAMP</div>
+                <p>The art of elegant dining in the heart of Cebu.</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-col">
+                    <h4>Navigate</h4>
+                    <a href="#experience">Experience</a>
+                    <a href="#menu">Menu</a>
+                    <a href="#story">Our Story</a>
+                    <a href="#reserve">Reservations</a>
                 </div>
-                <div class="footer-links">
-                    <div class="footer-column">
-                        <h4>Navigate</h4>
-                        <ul>
-                            <li><a href="#home">Home</a></li>
-                            <li><a href="#story">Our Story</a></li>
-                            <li><a href="#menu">Menu</a></li>
-                            <li><a href="#gallery">Gallery</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-column">
-                        <h4>Visit</h4>
-                        <ul>
-                            <li><a href="#visit">Location</a></li>
-                            <li><a href="#reservation">Reservations</a></li>
-                            <li><a href="#">Private Events</a></li>
-                            <li><a href="#">Gift Cards</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-column">
-                        <h4>Contact</h4>
-                        <ul>
-                            <li><a href="tel:+63321234567">+63 32 123 4567</a></li>
-                            <li><a href="mailto:hello@tampcafe.ph">hello@tampcafe.ph</a></li>
-                            <li>Ayala Center Cebu</li>
-                            <li>Cebu City 6000</li>
-                        </ul>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <a href="tel:+63321234567">+63 32 123 4567</a>
+                    <a href="mailto:hello@tampcafe.ph">hello@tampcafe.ph</a>
+                    <p>Ayala Center Cebu<br>Cebu City 6000</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow</h4>
+                    <div class="footer-social">
+                        <a href="#" class="social-link">Instagram</a>
+                        <a href="#" class="social-link">Facebook</a>
+                        <a href="#" class="social-link">Twitter</a>
                     </div>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Tamp. All rights reserved.</p>
-                <div class="footer-legal">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Tamp. All rights reserved.</p>
+            <div class="footer-legal">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
             </div>
         </div>
     </footer>
